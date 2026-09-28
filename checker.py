@@ -44,7 +44,18 @@ def check_sticky_mac(config):
         return "OK: Sticky MAC is enabled."
     else:
         return "WARNING: Sticky MAC is not enabled."
-
+        
+def check_console_security(config):
+    if (
+        "line console 0" in config
+        and "password" in config
+        and "login" in config
+    ):
+        return "OK: Console password authentication is configured."
+    else:
+        return "WARNING: Console password authentication may not be configured."
+        
+    
 results = []
 results.append(check_telnet(config))
 results.append(check_ssh(config))
@@ -52,6 +63,7 @@ results.append(check_enable_secret(config))
 results.append(check_password_encryption(config))
 results.append(check_port_security(config))
 results.append(check_sticky_mac(config))
+results.append(check_console_security(config))
 
 print("Security Check Results")
 print("----------------------")
