@@ -6,4 +6,8 @@ transport input telnet
 !
 """
 print("Checker network configuration...")
-print(config)
+
+if "transport input telnet" in config:
+  print("WARNING: Telnet is enabled.")
+else:
+  print("OK: Telnet is not enabled.")
