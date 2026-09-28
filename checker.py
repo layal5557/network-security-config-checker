@@ -9,33 +9,39 @@ except FileNotFoundError:
 print("Checking network configuration...")
 print()
 
+results = []
 if "transport input telnet" in config:
-  print("WARNING: Telnet is enabled.")
+ results.append("WARNING: Telnet is enabled.")
 else:
-  print("OK: Telnet is not enabled.")
+   results.append("OK: Telnet is not enabled.")
 
 if "transport input ssh" in config:
-  print("OK: SSH is enabled.")
+  results.append("OK: SSH is enabled.")
 else:
-  print("WARNING: SSH is not enabled.")
+  results.append("WARNING: SSH is not enabled.")
 
 if "enable secret" in config:
-  print("OK: Enable secret is not configured.")
+  results.append("OK: Enable secret is not configured.")
 else:
-  print("WARNING: Enable secret is not configured.")
+   results.append("WARNING: Enable secret is not configured.")
   
 if "service password-encryption" in config:
-  print("OK: Password encryption is enabled.")
+   results.append("OK: Password encryption is enabled.")
 else:
-  print("WARNING: Password encryption is not enabled.")
+   results.append("WARNING: Password encryption is not enabled.")
 
 if "switchport port-security" in config:
-  print("OK: Port Security is enabled.")
+  results.append("OK: Port Security is enabled.")
 else:
-  print("WARNING: Port Security is not enabled.")
+   results.append("WARNING: Port Security is not enabled.")
 
 if "switchport port-security mac-address sticky" in config:
-    print("OK: Sticky MAC is enabled.")
+     results.append("OK: Sticky MAC is enabled.")
 else:
-    print("WARNING: Sticky MAC is not enabled.")
-    
+     results.append("WARNING: Sticky MAC is not enabled.")
+
+print("Security Check Results")
+print("----------------------")
+
+for result in results:
+    print(result)
