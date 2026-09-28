@@ -54,7 +54,12 @@ def check_console_security(config):
         return "OK: Console password authentication is configured."
     else:
         return "WARNING: Console password authentication may not be configured."
-        
+
+def check_http_server(config):
+    if "ip http server" in config:
+        return "WARNING: HTTP server is enabled."
+    else:
+        return "OK: HTTP server is not enabled."
     
 results = []
 results.append(check_telnet(config))
@@ -64,6 +69,7 @@ results.append(check_password_encryption(config))
 results.append(check_port_security(config))
 results.append(check_sticky_mac(config))
 results.append(check_console_security(config))
+results.append(check_http_server(config))
 
 print("Security Check Results")
 print("----------------------")
