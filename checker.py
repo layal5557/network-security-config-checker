@@ -10,15 +10,19 @@ print("Checking network configuration...")
 print()
 
 results = []
-if "transport input telnet" in config:
- results.append("WARNING: Telnet is enabled.")
-else:
-   results.append("OK: Telnet is not enabled.")
+results.append(check_telnet(config))
+results.append(check_ssh(config))
+def chek_telnet(config):
+   if "transport input telnet" in config:
+      return "WARNING: Telnet is enabled."
+   else:
+      return "OK: Telnet is not enabled."
 
-if "transport input ssh" in config:
-  results.append("OK: SSH is enabled.")
-else:
-  results.append("WARNING: SSH is not enabled.")
+def check_ssh(config):
+     if "transport input ssh" in config:
+          return "OK: SSH is enabled."
+     else:
+          return "WARNING: SSH is not enabled."
 
 if "enable secret" in config:
   results.append("OK: Enable secret is not configured.")
