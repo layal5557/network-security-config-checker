@@ -9,9 +9,7 @@ except FileNotFoundError:
 print("Checking network configuration...")
 print()
 
-results = []
-results.append(check_telnet(config))
-results.append(check_ssh(config))
+
 def chek_telnet(config):
    if "transport input telnet" in config:
       return "WARNING: Telnet is enabled."
@@ -23,26 +21,37 @@ def check_ssh(config):
           return "OK: SSH is enabled."
      else:
           return "WARNING: SSH is not enabled."
+def check_enable_secret(config):
+      if "enable secret" in config:
+           return "OK: Enable secret is not configured."
+      else:
+           return "WARNING: Enable secret is not configured."
 
-if "enable secret" in config:
-  results.append("OK: Enable secret is not configured.")
-else:
-   results.append("WARNING: Enable secret is not configured.")
-  
-if "service password-encryption" in config:
-   results.append("OK: Password encryption is enabled.")
-else:
-   results.append("WARNING: Password encryption is not enabled.")
+def check_password_encryption(config): 
+     if "service password-encryption" in config:
+         return "OK: Password encryption is enabled."
+     else:
+         return "WARNING: Password encryption is not enabled."
 
-if "switchport port-security" in config:
-  results.append("OK: Port Security is enabled.")
-else:
-   results.append("WARNING: Port Security is not enabled.")
+def check_port_security(config):
+    if "switchport port-security" in config:
+        return "OK: Port Security is enabled."
+    else:
+        return"WARNING: Port Security is not enabled."
 
-if "switchport port-security mac-address sticky" in config:
-     results.append("OK: Sticky MAC is enabled.")
-else:
-     results.append("WARNING: Sticky MAC is not enabled.")
+def check_sticky_mac(config):
+    if "switchport port-security mac-address sticky" in config:
+        return "OK: Sticky MAC is enabled."
+    else:
+        return "WARNING: Sticky MAC is not enabled."
+
+results = []
+results.append(check_telnet(config))
+results.append(check_ssh(config))
+results.append(check_enable_secret(config))
+results.append(check_password_encryption(config))
+results.append(check_port_security(config))
+results.append(check_sticky_mac(config))
 
 print("Security Check Results")
 print("----------------------")
