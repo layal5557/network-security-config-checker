@@ -60,7 +60,13 @@ def check_http_server(config):
         return "WARNING: HTTP server is enabled."
     else:
         return "OK: HTTP server is not enabled."
-    
+
+def check_https_server(config):
+    if "ip https secure-server" in config:
+        return "OK: HTTPS server is enabld."
+    else:
+        return "WARNING: HTTPS server is not enabled."
+        
 results = []
 results.append(check_telnet(config))
 results.append(check_ssh(config))
@@ -70,6 +76,7 @@ results.append(check_port_security(config))
 results.append(check_sticky_mac(config))
 results.append(check_console_security(config))
 results.append(check_http_server(config))
+results.append(check_https_server(config))
 
 print("Security Check Results")
 print("----------------------")
