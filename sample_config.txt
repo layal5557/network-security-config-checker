@@ -18,3 +18,5 @@ line console 0
 password ConsolePassword
 login
 !
+ip http server
+!
