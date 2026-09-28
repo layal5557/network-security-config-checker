@@ -20,5 +20,4 @@ login
 !
 ip http server
 !
-no ip http server
-!
+
