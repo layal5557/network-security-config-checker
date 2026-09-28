@@ -1,15 +1,12 @@
-config = """
-hostname R1
-!
-enable secret MySecretPassword
-!
-service password-encryption
-!
-line vty 0 4
-transport input telnet
-!
-"""
-print("Checker network configuration...")
+try:
+    with open("sample_config.txt", "r")
+      as file:
+          config = file.read()
+except FileNotFoundError:
+  print("ERROR: Configuration file not found.")
+  exit()
+
+print("Checking network configuration...")
 print()
 
 if "transport input telnet" in config:
