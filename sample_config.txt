@@ -9,3 +9,8 @@ ip domain-name example.local
 line vty 0 4
 transport input telnet
 !
+interface FastEthernet0/1
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky
+!
