@@ -43,5 +43,20 @@ else:
 print("Security Check Results")
 print("----------------------")
 
+passed = 0
+warnings = 0
+
 for result in results:
     print(result)
+    if result.startwith("OK:"):
+        passed += 1
+    elif
+    result.startwith("WARNING:"):
+        warnings += 1
+
+print()
+print("Summary")
+print("-------")
+print(f"Passed checks: {passed}")
+print(f"Warnings: {warnings}")
+
