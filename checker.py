@@ -56,13 +56,13 @@ def check_console_security(config):
         return "WARNING: Console password authentication may not be configured."
 
 def check_http_server(config):
-    if "ip http server" in config:
+    if "ip http server" in config and "no ip http server" not in config:
         return "WARNING: HTTP server is enabled."
     else:
         return "OK: HTTP server is not enabled."
 
 def check_https_server(config):
-    if "ip https secure-server" in config:
+    if "ip https secure-server" in config and "no ip http secure-server" not in config:
         return "OK: HTTPS server is enabld."
     else:
         return "WARNING: HTTPS server is not enabled."
