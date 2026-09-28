@@ -14,3 +14,7 @@ interface FastEthernet0/1
  switchport port-security
  switchport port-security mac-address sticky
 !
+line console 0
+password ConsolePassword
+login
+!
