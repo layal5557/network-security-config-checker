@@ -1,0 +1,11 @@
+hostname R1
+!
+enable secret MySecretPassword
+!
+service password-encryption
+!
+ip domain-name example.local
+!
+line vty 0 4
+transport input telnet
+!
