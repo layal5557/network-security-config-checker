@@ -3,6 +3,8 @@ hostname R1
 !
 enable secret MySecretPassword
 !
+service password-encryption
+!
 line vty 0 4
 transport input telnet
 !
@@ -25,3 +27,7 @@ if "enable secret" in config:
 else:
   print("WARNING: Enable secret is not configured.")
   
+if "service password-encryption" in config:
+  print("OK: Password encryption is enabled.")
+else:
+  print("WARNING: Password encryption is not enabled.")
