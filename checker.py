@@ -28,3 +28,14 @@ if "service password-encryption" in config:
   print("OK: Password encryption is enabled.")
 else:
   print("WARNING: Password encryption is not enabled.")
+
+if "switchport port-security" in config:
+  print("OK: Port Security is enabled.")
+else:
+  print("WARNING: Port Security is not enabled.")
+
+if "switchport port-security mac-address sticky" in config:
+    print("OK: Sticky MAC is enabled.")
+else:
+    print("WARNING: Sticky MAC is not enabled.")
+    
