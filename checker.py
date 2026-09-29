@@ -109,4 +109,7 @@ print("-------")
 print(f"Passed checks: {passed}")
 print(f"Warnings: {warnings}")
 print(f"Total checks: {total}")
-
+if warnings == 0:
+    print("Security status: GOOD")
+else:
+    print("Security status: REVIEW REQUIRED")
