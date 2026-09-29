@@ -13,3 +13,14 @@ The tool checks for the following Cisco security configuration:
 - Console security
 - HTTP server
 - HTTPS server
+## Usage
+Run the checker from the command line:
+```bash
+python checker.py samble_config.txt
+```
+## Project Structure
+```text
+network-security-config-checker/
+|--- checker.py
+|--- sample-config.txt
+|--- README.md
