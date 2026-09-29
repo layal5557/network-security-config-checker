@@ -115,3 +115,5 @@ def print_report(results):
     else:
        print("Security status: REVIEW REQUIRED")
 
+print_report(results)
+
