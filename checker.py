@@ -94,6 +94,7 @@ print("----------------------")
 
 passed = 0
 warnings = 0
+total = len(results)
 
 for result in results:
     print(f"[{result.split(':')[0]}]{result.split(':', 1)[1].strip()}")
@@ -107,4 +108,5 @@ print("Summary")
 print("-------")
 print(f"Passed checks: {passed}")
 print(f"Warnings: {warnings}")
+print(f"Total checks: {total}")
 
