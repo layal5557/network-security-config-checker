@@ -10,7 +10,7 @@ print("Checking network configuration...")
 print()
 
 
-def chek_telnet(config):
+def check_telnet(config):
    if "transport input telnet" in config:
       return "WARNING: Telnet is enabled."
    else:
@@ -23,7 +23,7 @@ def check_ssh(config):
           return "WARNING: SSH is not enabled."
 def check_enable_secret(config):
       if "enable secret" in config:
-           return "OK: Enable secret is not configured."
+           return "OK: Enable secret is configured."
       else:
            return "WARNING: Enable secret is not configured."
 
@@ -86,10 +86,9 @@ warnings = 0
 
 for result in results:
     print(result)
-    if result.startwith("OK:"):
+    if result.startswith("OK:"):
         passed += 1
-    elif
-    result.startwith("WARNING:"):
+    elif result.startswith("WARNING:"):
         warnings += 1
 
 print()
