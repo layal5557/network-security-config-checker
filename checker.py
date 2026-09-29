@@ -83,7 +83,7 @@ def run_checks(config):
     results.append(check_console_security(config))
     results.append(check_http_server(config))
     results.append(check_https_server(config))
-       return results
+    return results
 
 print("================================")
 print(" Network Security Config Checker")
