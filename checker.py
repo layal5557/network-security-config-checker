@@ -1,7 +1,12 @@
+import sys
 try:
-    with open("sample_config.txt", "r") as file:
+    filename = sys.argv[1]
+    with open(filename, "r") as file:
           config = file.read()
         
+except IndexError:
+    print("ERROR: Please provide a configuration file.")
+    exit()
 except FileNotFoundError:
   print("ERROR: Configuration file not found.")
   exit()
