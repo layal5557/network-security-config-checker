@@ -83,6 +83,12 @@ results.append(check_console_security(config))
 results.append(check_http_server(config))
 results.append(check_https_server(config))
 
+print("================================")
+print(" Network Security Config Checker")
+print("================================")
+print()
+print("Checking network configuration...")
+print()
 print("Security Check Results")
 print("----------------------")
 
