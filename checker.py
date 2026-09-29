@@ -1,5 +1,6 @@
 try:
-    with open("sample_config.txt", "r") as file:
+    with open("sample_config.txt", "r"):
+    as file:
           config = file.read()
 except FileNotFoundError:
   print("ERROR: Configuration file not found.")
