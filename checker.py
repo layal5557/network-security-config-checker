@@ -72,16 +72,18 @@ def check_https_server(config):
     else:
         return "WARNING: HTTPS server is not enabled."
         
-results = []
-results.append(check_telnet(config))
-results.append(check_ssh(config))
-results.append(check_enable_secret(config))
-results.append(check_password_encryption(config))
-results.append(check_port_security(config))
-results.append(check_sticky_mac(config))
-results.append(check_console_security(config))
-results.append(check_http_server(config))
-results.append(check_https_server(config))
+def run_checks(config):        
+    results = []
+    results.append(check_telnet(config))
+    results.append(check_ssh(config))
+    results.append(check_enable_secret(config))
+    results.append(check_password_encryption(config))
+    results.append(check_port_security(config))
+    results.append(check_sticky_mac(config))
+    results.append(check_console_security(config))
+    results.append(check_http_server(config))
+    results.append(check_https_server(config))
+       return results
 
 print("================================")
 print(" Network Security Config Checker")
@@ -114,6 +116,7 @@ def print_report(results):
        print("Security status: GOOD")
     else:
        print("Security status: REVIEW REQUIRED")
-
+        
+results = run_checks(config)
 print_report(results)
 
