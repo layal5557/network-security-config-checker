@@ -90,7 +90,7 @@ passed = 0
 warnings = 0
 
 for result in results:
-    print(result)
+    print(f"[{result.split(':')[0]}]{result.split(':', 1)[1].strip()}")
     if result.startswith("OK:"):
         passed += 1
     elif result.startswith("WARNING:"):
