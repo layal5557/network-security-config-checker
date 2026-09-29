@@ -16,7 +16,7 @@ The tool checks for the following Cisco security configuration:
 ## Usage
 Run the checker from the command line:
 ```bash
-python checker.py samble_config.txt
+python checker.py sample_config.txt
 ```
 ## Project Structure
 ```text
